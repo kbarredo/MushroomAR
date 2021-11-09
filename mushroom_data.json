@@ -1,0 +1,84 @@
+{
+	"data": [
+		{
+			"cname": "Fly Agaric",
+            "sname": "Amanita muscaria",
+			"use": "Psychoactive",
+			"diameter": 10,
+			"habitat": "Poor and sandy soils in North America, Europe, and Asia.",
+            "model": "../models/amanita",
+            "imageFilePath": "../images/amanita",
+			"about": "Known as the world's most famous mushroom, as it is featured in children's books, films, garden ornaments, greeting cards, and computer games."
+		},
+		{
+			"cname": "Chanterelle",
+            "sname": "Cantharellus cibarius",
+			"use": "Edible",
+			"diameter": 10,
+			"habitat": "Mossy coniferous forests, mountainous birch forests and among grasses and low-growing herbs in Eurasia, North and Central America, and Africa.",
+            "model": "../models/chanterelle",
+            "imageFilePath": "../images/chanterelle",
+			"about": "Just picked specimens will have a sweet smell like apricots."
+		},
+		{
+			"cname": "Indigo Milk Cap",
+            "sname": "Lactarius indigo",
+			"use": "Edible",
+			"diameter": 15,
+            "habitat": "Coniferous and deciduous forests of North America, East Asia, and Central America",
+			"model": "../models/indigo",
+            "imageFilePath": "../images/indigo",
+			"about": "Oozes an indigo-colored \"milk,\", or latex, when the mushroom is cut or broken open."
+		},
+		{
+			"cname": "Turkey Tail",
+            "sname": "Trametes versicolor",
+			"use": "Consumed as medicinal tea",
+			"diameter": 10,
+			"habitat": "Dead, deciduous wood, in the wounds of living hardwood trees, and on conifers throughout Canada, the U.S., and in many countries worldwide.",
+            "model": "../models/turkey",
+            "imageFilePath": "../images/turkey",
+			"about": "May have positive benefits in protecting against cancer."
+		},
+		{
+			"cname": "Lion's Mane",
+            "sname": "Hericium erinaceus",
+			"use": "Edible",
+			"diameter": 16,
+			"habitat": "Hardwood trees throughout North America, Asia, and Europe.",
+            "model": "../models/lion",
+            "imageFilePath": "../images/lion",
+			"about": "They appear to have nerve regenerating properties, stimulating nerve growth and aiding those with cognitive impairments."
+		},
+		{
+			"cname": "Shiitake",
+            "sname": "Lentinula edodes",
+			"use": "Edible",
+			"diameter": 15,
+			"habitat": "Decaying wood of deciduous trees in Southeast Asia.",
+            "model": "../models/shiitake",
+            "imageFilePath": "../images/shiitake",
+			"about": "Contains lentinan, a polysaccharide with strong anti-cancer properties, and known to stabilize blood pressure."
+		},
+		{
+			"cname": "Honey Fungus",
+            "sname": "Armillaria mellea",
+			"use": "Edible",
+			"diameter": 4,
+			"habitat": "Wood at the base of oak trees throughout temperate regions of the Northern Hemisphere.",
+            "model": "../models/honey",
+            "imageFilePath": "../images/honey",
+			"about": "One patch of honey fungus is thought to be the largest organism in the world. Mainly growing underground, the mycelia of this patch covers over 2,400 acres in Oregon and is estimated to be over 2,200 years old."
+		},
+		{
+			"cname": "Veiled Lady",
+            "sname": "Phallus indusiatus",
+			"use": "Edible",
+			"diameter": 6,
+			"habitat": "Woodlands and gardens in rich soil and well-rotted woody material in Southern Asia, Africa, the Americas, and Australia.",
+            "model": "../models/veil",
+            "imageFilePath": "../images/veil",
+			"about": "It is coated in a greenish-brown slime to attract flies and insects that help disperse the spores."
+		}
+	]
+}

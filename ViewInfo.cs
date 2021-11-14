@@ -2,45 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+// using UnityEngine.SceneManagement;
 using System;
 
 public class ViewInfo : MonoBehaviour
 {
-    public GameObject[] mushrooms;
-    public GameObject currentMushroom;
-    public int index;
-    
-    // Start is called before the first frame update
+    public string text = "";
+    private GameManager gameManager;
+
     void Start()
     {
-        Action action = () =>
-        {
-            // Select a random Mushroom to spawn
-            mushrooms = GameObject.FindGameObjectsWithTag("shroom"); //mushrooms = new GameObject[] { FlyAgaric, Chanterelle, IndigoMilkCap };
-            index = UnityEngine.Random.Range(0, mushrooms.Length);
-            currentMushroom = mushrooms[index];
-            // Spawn new random mushroom
-            index = UnityEngine.Random.Range(0, mushrooms.Length);
-            currentMushroom = mushrooms[index];
-            Instantiate(currentMushroom, transform.position, transform.rotation); // FIXME: randomize position
-        };
+        gameManager = GameObject.FindObjectOfType<GameManager>(); // Get Mushroom data from GameManager.cs
+    }
 
-        // FIXME Listen for click on Mushroom
-        void OnMouseDown()
+    // Detect click on Mushroom collider
+    public void OnMouseDown()
+    {
+        text = gameManager.GetMushroomProps(gameObject.name); // Get Mushroom data from GameManager.cs
+        //Debug.Log("Clicked prefab");
+
+        // Initialize popup window
+        Popup popup = UIController.Instance.CreatePopup();
+        popup.Init(UIController.Instance.MainCanvas,
+            text,
+            "X", 
+            1
+            );
+
+        // Remove collected Mushroom from scene
+        Destroy(gameObject);
+    }
+
+    void Update()
+    {
+        // Detect tap on Mushroom in AR
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
-            Debug.Log("Clicked prefab " + hit.transform.name);
-            
-            // Create pop up 
-            Popup popup = UIController.Instance.CreatePopup();
-            // Init pop up with params (canvas, text, text, action)
-            popup.Init(UIController.Instance.MainCanvas,
-                "[ insert shroom info here ]",
-                "X",
-                action
-                );
+            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit Hit;
+            if (Physics.Raycast(ray, out Hit))
+            {
+                // Get Mushroom data from GameManager.cs
+                text = gameManager.GetMushroomProps(Hit.transform.name);
+                // Initialize popup window
+                Popup popup = UIController.Instance.CreatePopup();
+                popup.Init(UIController.Instance.MainCanvas,
+                    text,
+                    "X",
+                    1
+                    );
+
+                // Remove collected Mushroom from scene
+                Destroy(gameObject);
+            }
         }
     }
 }
 
-// https://www.youtube.com/watch?v=Bm62aXuVX4I&t=0s
+// Popup - https://www.youtube.com/watch?v=Bm62aXuVX4I&t=0s
+// Destroy(gameObject); - https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnMouseDown.html
+// Clicking objects in AR (using 3D objects as buttons) - https://www.youtube.com/watch?v=hi_KDpC1nzk
